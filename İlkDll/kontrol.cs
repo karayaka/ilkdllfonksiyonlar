@@ -52,6 +52,24 @@ namespace Personel_Puantaj.cs
             return cevap=string.IsNullOrWhiteSpace(txtdeger);
 
         }
+         void FormuAcMdiForm(Form gelenForm)
+        {
+            bool formVar = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (gelenForm.Name == item.Name)
+                {
+                    formVar = true;
+                    item.Activate();
+                    break;
+                }
+            }
+            if (!formVar)
+            {
+                gelenForm.MdiParent = this;
+                gelenForm.Show();
+            }
+        }
 
        
 
